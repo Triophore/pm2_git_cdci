@@ -9,6 +9,12 @@ const { spawn } = require('child_process');
 
 const Hapi = require('@hapi/hapi');
 
+var dir = './logs';
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
+
 const init = async () => {
 
     const server = Hapi.server({

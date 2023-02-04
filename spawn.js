@@ -6,8 +6,10 @@ var fs = require("fs");
 child.execSync(config + "cd_start.sh");
 
 
+if(fs.ex)
+
 try {
-    const cmd = config + "cd_start.sh";
+    const cmd = "sh cd_start.sh";
     var res = execSync(cmd).toString();
     var file_name = "logs/POST"+ Date.now() + ".txt";
     fs.appendFileSync(file_name,res);
