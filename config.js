@@ -4,6 +4,6 @@ module.exports.config = {
     pm2_id : 1,
     git_path : "/root/athena_server",
     git_repo : "git@github.com:venusdharan/athena_server.git",
-    root_path : "",
+    root_path : "/root/athena_server",
     port:7777
 }

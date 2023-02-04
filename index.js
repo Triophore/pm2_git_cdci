@@ -25,7 +25,7 @@ const init = async () => {
             console.log(payload)
             if(payload.repository.full_name == "venusdharan/athena_server" ){
                 console.log("Calling pulling script");
-                const child = spawn('node', [config.root_path + "spawn.js"], {
+                const child = spawn('node', ["./spawn.js"], {
                     detached: true,
                     stdio: 'ignore'
                 });
