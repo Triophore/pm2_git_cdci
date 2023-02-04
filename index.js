@@ -22,23 +22,23 @@ const init = async () => {
         path: "/",
         handler: function (request, h) {
             var payload = JSON.parse(request.payload.payload);
-            console.log(request)
-            if(payload.pusher.repository.full_name == "venusdharan/athena_server" ){
-                gitPullOrClone(config.git_repo,config.git_path, (err) => {
-                    if (err) return;
-                    console.log('Pulling latest repo');
-                    pm2.connect(function(err) {
+            console.log(payload)
+            // if(payload.pusher.repository.full_name == "venusdharan/athena_server" ){
+            //     gitPullOrClone(config.git_repo,config.git_path, (err) => {
+            //         if (err) return;
+            //         console.log('Pulling latest repo');
+            //         pm2.connect(function(err) {
             
-                        console.log("Restarting process");
+            //             console.log("Restarting process");
                 
-                        pm2.restart(config.pm2_id, (err, proc) => {
-                            // Disconnects from PM2
-                            //pm2.disconnect()
-                        })
+            //             pm2.restart(config.pm2_id, (err, proc) => {
+            //                 // Disconnects from PM2
+            //                 //pm2.disconnect()
+            //             })
                 
-                    });
-                })
-            }
+            //         });
+            //     })
+            // }
             return {
                 status : true
             }
