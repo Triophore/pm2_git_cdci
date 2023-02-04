@@ -21,7 +21,7 @@ const init = async () => {
         method: 'POST',
         path: "/",
         handler: function (request, h) {
-            var payload = request.payload;
+            var payload = JSON.parse(request.payload.payload);
             console.log(request)
             if(payload.pusher.repository.full_name == "venusdharan/athena_server" ){
                 gitPullOrClone(config.git_repo,config.git_path, (err) => {
