@@ -1,0 +1,25 @@
+{
+  "name": "pm2_git_cdci",
+  "version": "1.0.0",
+  "description": "Git based simple CDCI for PM2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Triophore/pm2_git_cdci.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Triophore/pm2_git_cdci/issues"
+  },
+  "homepage": "https://github.com/Triophore/pm2_git_cdci#readme",
+  "dependencies": {
+    "git-pull-or-clone": "^2.0.2",
+    "github-webhook-handler": "^1.0.0",
+    "pm2": "^5.2.2"
+  }
+}
