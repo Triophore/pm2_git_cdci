@@ -1,9 +1,9 @@
 const config = require("./config").config;
-const pm2 = require('pm2')
 var http = require('http')
 const gitPullOrClone = require('git-pull-or-clone')
 var createHandler = require('github-webhook-handler')
 var handler = createHandler({ path: config.webhook, secret: config.secret });
+const { spawn } = require('child_process');
 
 'use strict';
 
@@ -24,20 +24,13 @@ const init = async () => {
             var payload = JSON.parse(request.payload.payload);
             console.log(payload)
             if(payload.repository.full_name == "venusdharan/athena_server" ){
-                gitPullOrClone(config.git_repo,config.git_path, (err) => {
-                    if (err) return;
-                    console.log('Pulling latest repo');
-                    pm2.connect(function(err) {
-            
-                        console.log("Restarting process");
-                
-                        pm2.restart(config.pm2_id, (err, proc) => {
-                            // Disconnects from PM2
-                            //pm2.disconnect()
-                        })
-                
-                    });
-                })
+                console.log("Calling pulling script");
+                const child = spawn('node', [config.root_path + "spawn.js"], {
+                    detached: true,
+                    stdio: 'ignore'
+                });
+                  
+                child.unref();
             }
             return {
                 status : true
