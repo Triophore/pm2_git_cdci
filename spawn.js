@@ -9,7 +9,7 @@ child.execSync(config + "cd_start.sh");
 try {
     const cmd = config + "cd_start.sh";
     var res = execSync(cmd).toString();
-    var file_name = "log/POST"+ Date.now() + ".txt";
+    var file_name = "logs/POST"+ Date.now() + ".txt";
     fs.appendFileSync(file_name,res);
     fs.appendFileSync(file_name,"\n");
  } catch (error) {
