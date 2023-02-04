@@ -2,11 +2,9 @@ const config = require("./config").config;
 var execSync = require('child_process').execSync;
 var fs = require("fs");
 
+//
 
-child.execSync(config + "cd_start.sh");
-
-
-if(fs.ex)
+//
 
 try {
     const cmd = "sh cd_start.sh";
