@@ -13,13 +13,13 @@ const init = async () => {
 
     const server = Hapi.server({
         port: config.port,
-        host: '0.0.0.0'
+        host: 'localhost'
     });
 
 
     server.route({
-        method: 'GET',
-        path: config.webhook,
+        method: 'POST',
+        path: "/",
         handler: function (request, h) {
             var payload = request.payload;
             if(payload.pusher.repository.full_name == "venusdharan/athena_server" ){
@@ -38,6 +38,18 @@ const init = async () => {
                     });
                 })
             }
+            return {
+                status : true
+            }
+        }
+    });
+
+    server.route({
+        method: 'GET',
+        path: '/',
+        handler: function (request, h) {
+    
+            return 'Hello World!';
         }
     });
 
